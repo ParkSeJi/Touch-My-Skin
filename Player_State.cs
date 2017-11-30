@@ -53,7 +53,7 @@ public class Player_State : MonoBehaviour {
 
 	public void OnClickSkill_Btn3()
 	{
-		PS = PlayerState.End_researcher;
+		PS = PlayerState.Wife_researcher;
 		Debug.Log ("Skill 3 use");
 	}
 }
