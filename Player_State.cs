@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlayerState{
 	normal,          //주인공
-	patient,		 //환자 (조력자) 
+	patient,         //환자 (조력자) 
 	Death,           //주인공_사망
 	higeLevel_re,    //wife 연구원
 	lowLevel_re,     //말단연구원
