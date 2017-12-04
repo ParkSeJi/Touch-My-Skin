@@ -62,7 +62,7 @@ public class Doctor1_Move : MonoBehaviour {
 			transform.LookAt (pointArr [getNextIdx (idx, reverseMove)].transform);
 
 		}
-
+		//
 	}
 
 	void moveNextPoint(GameObject a, GameObject b){
