@@ -26,7 +26,7 @@ public class Doctor1_Controller : MonoBehaviour {
 		animator.SetBool("Walk", moveSpeed > 0.0f);
 
 		if (GetComponent<Detection> ().getMonState () == 0) {	//game over
-			animator.SetTrigger ("SprintSlidle");
+			animator.SetTrigger ("SprintSlide");
 			GetComponent<Doctor1_Move> ().setMoveSpeed (0);
 		}
 	}
