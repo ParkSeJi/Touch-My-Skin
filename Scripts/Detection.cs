@@ -24,5 +24,5 @@ public class Detection : MonoBehaviour {
 	if(Vector3.Distance (player.position, transform.position) < findRange) {
 			transform.rotation = Quaternion.LookRotation (new Vector3 (player.position.x, this.transform.position.y, player.position.z) - transform.position);
 		}
-	}
+	} 
 }
