@@ -19,7 +19,7 @@ public class Doctor1_Move : MonoBehaviour {
 	void Start()
 	{
 		idx = 0;
-
+		moveSpeed = 1.0f;
 		startTime = Time.time;	//start time
 		reverseMove = false;
 		for (int i = 0; i < 4 - 1; i++) {
@@ -29,6 +29,9 @@ public class Doctor1_Move : MonoBehaviour {
 	}
 	void Update()
 	{
+	}
+
+	public void walk(){
 		distCovered = (Time.time - startTime) * moveSpeed;
 
 		if (!reverseMove) {
@@ -62,7 +65,7 @@ public class Doctor1_Move : MonoBehaviour {
 			transform.LookAt (pointArr [getNextIdx (idx, reverseMove)].transform);
 
 		}
-		//
+
 	}
 
 	void moveNextPoint(GameObject a, GameObject b){

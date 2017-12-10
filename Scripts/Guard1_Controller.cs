@@ -23,7 +23,7 @@ public class Guard1_Controller : MonoBehaviour {
 
 		direction.y -= gravity * Time.deltaTime;
 		controller.Move (direction * Time.deltaTime);	
-		animator.SetBool("walkneutral", moveSpeed > 0.0f);
+//		animator.SetBool("walkneutral", moveSpeed > 0.0f);
 
 	}
 }
