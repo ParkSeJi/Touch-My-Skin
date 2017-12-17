@@ -28,7 +28,7 @@ public class Doctor1_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		direction.y -= gravity * Time.deltaTime;
-		controller.Move (direction * Time.deltaTime);
+//		controller.Move (direction * Time.deltaTime);
 		if (keepWalk) {
 			animator.SetBool ("Walk", true);
 			Move.walk ();
