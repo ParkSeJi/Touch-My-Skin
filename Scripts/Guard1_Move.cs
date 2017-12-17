@@ -9,6 +9,7 @@ public class Guard1_Move : MonoBehaviour {
 	public bool reverseMove = false;	//거꾸로 돌아가는 지(y축 방향전환)
 	public Transform objectToUse;	//game object-> 여기서는 캐릭터
 
+
 	private float startTime;	//pointA, pointB에서 부터 시작하는 시간
 	private float distanceATOB;	//pointA, pointB 사이의 거리
 	private float distCovered;	//속력
@@ -23,33 +24,37 @@ public class Guard1_Move : MonoBehaviour {
 	}
 	void Update()
 	{
+	}
+	public void walk(){
 		distCovered = (Time.time - startTime) * moveSpeed;
 		distPerTime = distCovered / distanceATOB;
+
 		if (reverseMove)
 		{
-			objectToUse.position = Vector3.Lerp(pointB.transform.position, pointA.transform.position, distPerTime);	//B -> A
-		}
-		else
+			objectToUse.position = Vector3.Lerp(pointB.transform.position, pointA.transform.position, distPerTime);
+
+
+		}else
 		{
-			objectToUse.position = Vector3.Lerp(pointA.transform.position, pointB.transform.position, distPerTime);	//A -> B
+			objectToUse.position = Vector3.Lerp (pointA.transform.position, pointB.transform.position, distPerTime);
 		}
 
-		if ((Vector3.Distance(objectToUse.position, pointB.transform.position) == 0.0f 
-			|| Vector3.Distance(objectToUse.position, pointA.transform.position) == 0.0f))	//PointA 또는 PointB와 캐릭터 사의 거리가 0.0f일때
-		{
-			if (reverseMove)
-			{
-				transform.LookAt (pointB.transform);	//Point B를 바라봄
-				reverseMove = false;
-			}
-			else
-			{
-				transform.LookAt (pointA.transform);	//Point A 를 바라봄
-				reverseMove = true;
-			}
+		if (Vector3.Distance (objectToUse.transform.position, pointA.transform.position) <= 0.01f) {
+			Debug.Log ("look at b");	
+			objectToUse.LookAt (pointB.transform);
+			reverseMove = false;
 			startTime = Time.time;
 		}
+		if (Vector3.Distance (objectToUse.transform.position, pointB.transform.position) <= 0.01f) {
+			Debug.Log ("look at a");	
+			objectToUse.LookAt (pointA.transform);
+			reverseMove = true;
+			startTime = Time.time;
+		}
+	
+	
 	}
+
 
 	public float getMoveSpeed(){
 		return moveSpeed;
